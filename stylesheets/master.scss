@@ -1,3 +1,10 @@
+
+@mixin mobile {
+  @media only screen and (max-width: 550px) {
+    @content;
+  }
+}
+
 html,
 body {
   width: 100%;
@@ -6,196 +13,92 @@ body {
 body {
   font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
 }
-a {
-  color: #39b54a;
-}
-a:hover,
-a:focus,
-a:active {
-  color: #4da56c;
-}
-.header img {
-  margin: 0 auto;
-  width: 800px;
-  display: block;
-  max-width: 100%;
-  height: auto; }
 
-.margin-0 {
-  margin-right: 0;
-  margin-left: 0; }
-.clearfix:after {
-  visibility: hidden;
-  display: block;
-  font-size: 0;
-  content: " ";
-  clear: both;
- height: 0; }
+/* HEADER */
 
-* html .clearfix {
- zoom: 1; }
- /* IE6 */
- *:first-child + html .clearfix {
-   zoom: 1; }
-.quote {
-  text-align: center;
-  //padding: 15rem 10rem;
-  background-color: #e6e6e6;
-  h2 {
-    padding: 15rem;
-    color: gray;
-    font-weight: 100;
-  }
-}
-.text-vertical-center {
-  text-align: center;
-  padding: 20%;
-  margin-top: -18%;
-  h1 {
-    margin: 0;
-    padding: 0;
-    font-size: 4.5em;
-    font-weight: 700;
-  }
-}
-
-/* Custom Button Styles */
-
-.btn-shade {
-  padding: 15px;
-  border-radius: 0;
-  color: #fff;
-  background-color: #2cdd44;
-}
-.btn-shade:hover,
-.btn-shade:focus,
-.btn-shade:active {
-  color: #fff;
-  background-color: #2fed48;
-}
-.btn-light {
-  border-radius: 0;
-  color: #333;
-  background-color: rgb(255,255,255);
-}
-.btn-light:hover,
-.btn-light:focus,
-.btn-light:active {
-  color: #333;
-  background-color: rgba(255,255,255,0.8);
-}
-
-/* Custom Horizontal Rule */
-
-hr.small {
-  max-width: 100px;
-}
-#apply-toggle {
-  border-radius: 5px 5px 0 0;
-  z-index: 100;
-  position: fixed;
-  bottom: 0;
-  right: 20px;
-}
-
-/* Header */
-
-.header {
-  display: table;
-  position: relative;
-  width: 100%;
-  height: 100%;
-  background: url("http://i.imgur.com/ryxR9RC.jpg") no-repeat center center scroll;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
+header {
+  background: transparent url("http://www.pivotdublin.com/wp-content/uploads/2014/05/OCH_Alex__Dublin_Grand_Canal_4d5d4de1.jpg") no-repeat center bottom;
   background-size: cover;
-  -o-background-size: cover;
-}
-
-/* Image Sponsor */
-
-.image-sponsor {
-  display: table;
-  width: 100%;
   height: 400px;
-  color: #fff;
-  background: url("http://i.imgur.com/m4dvyS3.jpg") no-repeat center center scroll;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  -o-background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  h1 {
+    position: relative;
+    padding: 2rem;
+    margin: 0;
+
+    @include mobile {
+      left: .5rem;
+    }
+
+    img {
+      width: 20vw;
+      min-width: 15rem;
+
+      @include mobile {
+        width: 17rem;
+        min-width: 0;
+      }
+    }
+  }
 }
 
-/* About */
+/* FORM BUTTON */
+
+.form-btn {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  .large {
+    padding: .5rem;
+    width: 20rem;
+    height: 5rem;
+  }
+}
+
+/* ABOUT */
 
 .about {
-  padding: 50px 0;
-  padding-top: 10rem;
-  padding-bottom: 10rem;
-}
-.about-item {
-  margin-bottom: 30px;
-}
-.img-about {
-  margin: 0 auto;
-}
-.img-about:hover {
-  opacity: 0.8;
-}
-.about h4 {
-  text-align: left;
-  font-weight: bold;
-  margin-top: 3em;
-  color: #5e5e5e;
-}
-.location-section {
-  padding-top: 5rem;
-  padding-bottom: 5rem;
-  margin: auto;
-  display: block;
-  height: 300px;
-  width: 300px;
-  .google-embed {
-    float: right;
-    overflow: hidden;
-    border-radius: 50%;
-    position: relative;
-    z-index: 99;
+  padding: 2rem 10rem;
+
+  @include mobile {
+    padding: 2rem 3rem;
   }
-  .location-description {
-    padding-top: 20px;
-    font-size: 1.5em;
-    text-align: center;
-    color: #78a300;
-  }
-}
-.map {
-  height: 400px;
 }
 
-/* Footer */
-footer {
+/* FEATURE STARTUPS */
+
+.startups {
   background-color:#f1f1f1;
-  padding: 100px 0;
-}
-.quickDetails {
-  font-weight: normal;
-  padding: 30px;
-  span {
-    font-weight: lighter;
-    font-size: 16px;
+
+  .logos-table {
+    margin: 0 auto;
+
+    .startup-feature {
+      padding: 3rem;
+      max-width: 15rem;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+
+      @include mobile {
+        padding: 1rem;
+      }
+
+      h4 {
+        text-align:center;
+      }
+    }
   }
 }
 
-@media (max-width: 768px) {
-  .map {
-    height: 75%;
-  }
-  .quote h2 {
-    padding: 1rem;
-  }
-  .info{
-    margin-top: 15px;
-    margin-bottom: 15px;
-  }
+/* FOOTER */
+
+footer {
+  background-color:#404040;
+  padding: 100px 0;
 }

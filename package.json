@@ -1,12 +1,12 @@
 {
-  "name": "DublinStartupCrawl",
+  "name": "dublinstartuphosts",
   "private": true,
   "version": "1.0.1",
-  "description": "Web Summit Dublin office party crawl",
+  "description": "description here",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Dublin Startup Crawl",
+  "author": "Host a Startup",
   "license": "MIT",
   "devDependencies": {
     "gravatar": "^1.1.0",

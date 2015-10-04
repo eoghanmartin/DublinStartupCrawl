@@ -1,4 +1,6 @@
 
+$startup-pink: #E9018B;
+
 @mixin mobile {
   @media only screen and (max-width: 550px) {
     @content;
@@ -9,7 +11,9 @@ html,
 body {
   width: 100%;
   height: 100%;
+  background-color:#f1f1f1;
 }
+
 body {
   font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
 }
@@ -17,24 +21,23 @@ body {
 /* HEADER */
 
 header {
-  background: transparent url("http://www.pivotdublin.com/wp-content/uploads/2014/05/OCH_Alex__Dublin_Grand_Canal_4d5d4de1.jpg") no-repeat center bottom;
+  background: url("file:///Users/eoghanmartin/git/startupdublinhosts/dublin.png") no-repeat center bottom;
   background-size: cover;
-  height: 400px;
+  height: 500px;
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
 
   h1 {
+    width: 80%;
+    text-align: center;
     position: relative;
     padding: 2rem;
     margin: 0;
-
     @include mobile {
       left: .5rem;
     }
-
-    img {
+    .sponsor {
       width: 20vw;
       min-width: 15rem;
 
@@ -43,52 +46,81 @@ header {
         min-width: 0;
       }
     }
-  }
-}
-
-/* FORM BUTTON */
-
-.form-btn {
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-
-  .large {
-    padding: .5rem;
-    width: 20rem;
-    height: 5rem;
+    .plus {
+      @include mobile {
+        padding: 2rem 0;
+      }
+    }
+    .logo {
+      margin: 0 auto;
+      padding: 5rem 0;
+      max-width: 60rem;
+      min-width: 0;
+      padding-top: 7rem;
+      @include mobile {
+        width: 100%;
+        padding: 5rem 5px;
+      }
+    }
   }
 }
 
 /* ABOUT */
 
 .about {
+  background-color:#f1f1f1;
   padding: 2rem 10rem;
 
   @include mobile {
     padding: 2rem 3rem;
+  }
+
+  /* FORM BUTTON */
+
+  .form-btn {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 2rem;
+    padding-bottom: 5rem;
+
+    h4 {
+      color:$startup-pink;
+    }
+
+    .large {
+      padding: .5rem;
+      width: 20rem;
+      height: 5rem;
+    }
   }
 }
 
 /* FEATURE STARTUPS */
 
 .startups {
-  background-color:#f1f1f1;
+  background-color:#ffffff;
+  padding: 5rem 0;
 
+  h2 {
+    text-align: center;
+    padding-bottom: 3rem;
+    @include mobile {
+      font-size: 2.5rem;
+    }
+  }
   .logos-table {
     margin: 0 auto;
 
     .startup-feature {
       padding: 3rem;
-      max-width: 15rem;
+      max-width: 25rem;
       align-items: center;
       justify-content: center;
       text-align: center;
-
       @include mobile {
         padding: 1rem;
       }
-
       h4 {
         text-align:center;
       }
@@ -99,6 +131,55 @@ header {
 /* FOOTER */
 
 footer {
-  background-color:#404040;
-  padding: 100px 0;
+  background-color:#222222;
+  padding: 60px 0;
+  color: white;
+
+  h2 {
+    text-align: center;
+    padding-bottom: 3rem;
+    @include mobile {
+      font-size: 2.5rem;
+    }
+  }
+  .team-info {
+    padding-top: 15px;
+    .team {
+      font-weight: lighter;
+      margin: 0 auto;
+      max-width: 15rem;
+      @include mobile {
+        float: none;
+      }
+      .profile {
+        padding-top: 10px;
+        color:$startup-pink;
+      }
+    }
+  }
+  .contact {
+    padding-top: 40px;
+    @include mobile {
+      padding-top: -20px;
+    }
+    a {
+      color: $startup-pink;
+      text-decoration: none;
+    }
+    .circletag {
+      display: block;
+      width: 6rem;
+      height: 6rem;
+      padding-top: 1rem;
+      background: #ffffff;
+      -moz-border-radius: 3rem;
+      -webkit-border-radius: 3rem;
+      background-image: url(no.png);
+      background-position:50% 50%;
+      background-repeat:no-repeat;
+      .icon {
+        color: $startup-pink;
+      }
+    }
+  }
 }

@@ -7,6 +7,18 @@ $startup-pink: #E9018B;
   }
 }
 
+@mixin tablet {
+  @media only screen and (max-width: 800px) {
+    @content;
+  }
+}
+
+@mixin xs-screen {
+  @media only screen and (max-width: 990px) {
+    @content;
+  }
+}
+
 html,
 body {
   width: 100%;
@@ -21,15 +33,15 @@ body {
 /* HEADER */
 
 header {
-  background: url("file:///Users/eoghanmartin/git/startupdublinhosts/dublin.png") no-repeat center bottom;
+  background: url("http://i.imgur.com/aLOGkpc.png") no-repeat center bottom;
   background-size: cover;
-  height: 500px;
+  height: 550px;
   display: flex;
   align-items: center;
   justify-content: center;
 
   h1 {
-    width: 80%;
+    width: 70%;
     text-align: center;
     position: relative;
     padding: 2rem;
@@ -38,28 +50,45 @@ header {
       left: .5rem;
     }
     .sponsor {
-      width: 20vw;
+      width: 15vw;
       min-width: 15rem;
 
       @include mobile {
-        width: 17rem;
+        width: 10rem;
         min-width: 0;
       }
     }
     .plus {
+      color: white;
+      h2 {
+        font-weight: lighter;
+      }
       @include mobile {
         padding: 2rem 0;
+        font-size: 2rem;
+      }
+      @include tablet {
+        padding: 2rem 0;
+        font-size: 2rem;
+      }
+    }
+    .header-text h2 {
+      color: white;
+      font-weight: lighter;
+      @include mobile {
+        font-size: 2rem;
       }
     }
     .logo {
       margin: 0 auto;
-      padding: 5rem 0;
+      padding-top: 4rem;
       max-width: 60rem;
       min-width: 0;
-      padding-top: 7rem;
+      @include tablet {
+        width: 100%;
+      }
       @include mobile {
         width: 100%;
-        padding: 5rem 5px;
       }
     }
   }
@@ -101,6 +130,39 @@ header {
 .startups {
   background-color:#ffffff;
   padding: 5rem 0;
+  .team-info {
+    padding-top: 15px;
+    margin:0 auto;
+    max-width:80%;
+    @include xs-screen {
+      max-width: 100%;
+    }
+    .team {
+      font-weight: lighter;
+      margin: 0 auto;
+      @include tablet {
+        width: 70%;
+      }
+      @include mobile {
+        float: none !important;
+        width: 100% !important;
+        max-width: 30rem;
+        padding: 2rem 0;
+      }
+      .profile {
+        padding-top: 10px;
+        color:$startup-pink;
+        text-align: center;
+      }
+      .logo {
+        position: relative;
+        top: -5rem;
+        width: 30%;
+        margin-bottom: -4rem;
+        border: 8px solid #ffffff;
+      }
+    }
+  }
 
   h2 {
     text-align: center;
@@ -111,19 +173,48 @@ header {
   }
   .logos-table {
     margin: 0 auto;
-
     .startup-feature {
-      padding: 3rem;
-      max-width: 25rem;
+      max-width: 20rem;
+      padding: -5rem;
       align-items: center;
       justify-content: center;
       text-align: center;
-      @include mobile {
-        padding: 1rem;
-      }
       h4 {
         text-align:center;
       }
+    }
+  }
+
+  .center {
+     float: none;
+     margin-left: auto;
+     margin-right: auto;
+  }
+  .list-item {
+    max-width: 30rem;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    h4 {
+      text-align:center;
+    }
+  }
+
+  .form-btn {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 2rem;
+    padding-bottom: 5rem;
+
+    h4 {
+      color:$startup-pink;
+    }
+
+    .large {
+      padding: .5rem;
+      width: 20rem;
+      height: 5rem;
     }
   }
 }
@@ -135,30 +226,55 @@ footer {
   padding: 60px 0;
   color: white;
 
-  h2 {
+  h3 {
+    margin-top: -1rem;
     text-align: center;
     padding-bottom: 3rem;
+    font-weight: lighter;
     @include mobile {
       font-size: 2.5rem;
     }
   }
-  .team-info {
-    padding-top: 15px;
-    .team {
-      font-weight: lighter;
+  .blog-posts
+  {
+    padding-bottom: 3rem;
+    .blog
+    {
       margin: 0 auto;
-      max-width: 15rem;
-      @include mobile {
-        float: none;
+      display:block;
+      width:15rem;
+      height:15rem;
+      border-radius:15rem;
+      font-size:2rem;
+      color:gray;
+      line-height:5rem;
+      text-align:center;
+      text-decoration:none;
+      background: url("http://i.imgur.com/5W37lDF.png");
+      .logo-small {
+        padding-top: 4rem;
+        margin: 0 auto;
+        width: 6rem;
       }
-      .profile {
-        padding-top: 10px;
-        color:$startup-pink;
+      @include tablet {
+        width:10rem;
+        height:10rem;
+        border-radius:10rem;
+        line-height:3rem;
+        .logo-small {
+          padding-top: 2rem;
+        }
       }
+    }
+    .blog:hover
+    {
+      color:$startup-pink;
+      text-decoration:none;
+      opacity: 0.7;
     }
   }
   .contact {
-    padding-top: 40px;
+    padding-top: 30px;
     @include mobile {
       padding-top: -20px;
     }
@@ -166,20 +282,26 @@ footer {
       color: $startup-pink;
       text-decoration: none;
     }
+    h4 {
+      font-size: 2.5rem;
+      font-weight: lighter;
+    }
     .circletag {
+      margin: 0 auto;
       display: block;
       width: 6rem;
       height: 6rem;
       padding-top: 1rem;
       background: #ffffff;
-      -moz-border-radius: 3rem;
-      -webkit-border-radius: 3rem;
-      background-image: url(no.png);
-      background-position:50% 50%;
-      background-repeat:no-repeat;
+      border-radius:6rem;
       .icon {
         color: $startup-pink;
       }
+    }
+    .circletag:hover
+    {
+      text-decoration:none;
+      opacity: 0.7;
     }
   }
 }
